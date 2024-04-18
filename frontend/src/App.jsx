@@ -1,7 +1,8 @@
 import axios from './service/axios'
-import { createContext, useEffect, useReducer } from 'react'
+import { createContext, useEffect, useReducer, useState } from 'react'
 import recordReducer from './reducer/recordReducer'
 import ShowRecords from './components/ShowRecords'
+import RecordForm from './components/RecordForm'
 export const RecordContext = createContext()
 export function App() {
   const [records, recordDispatch] = useReducer(recordReducer , {data: [], loading: true, errors: ''})
@@ -17,11 +18,14 @@ export function App() {
       }
     })()
   }, [])
+  const handleCreate = () => {
+    setCreate(!create)
+}
   return (
     <RecordContext.Provider value={{records: records.data, recordDispatch}}>
       <h1>Property Listing App</h1>
       {create ? <RecordForm create={handleCreate}/> :
-        <button onClick={handleCreate}>create record</button>}
+        <button onClick={handleCreate}>create record</button>}<br/>
       {records.loading ? '...loading' : 
       !records.errors ? records.data.length ? <ShowRecords/> : 'no data' : 
       records.errors}
