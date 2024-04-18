@@ -5,6 +5,7 @@ import ShowRecords from './components/ShowRecords'
 export const RecordContext = createContext()
 export function App() {
   const [records, recordDispatch] = useReducer(recordReducer , {data: [], loading: true, errors: ''})
+  const [create, setCreate] = useState(false)
   console.log(records)
   useEffect(()=>{
     (async() => {
@@ -19,6 +20,8 @@ export function App() {
   return (
     <RecordContext.Provider value={{records: records.data, recordDispatch}}>
       <h1>Property Listing App</h1>
+      {create ? <RecordForm create={handleCreate}/> :
+        <button onClick={handleCreate}>create record</button>}
       {records.loading ? '...loading' : 
       !records.errors ? records.data.length ? <ShowRecords/> : 'no data' : 
       records.errors}
