@@ -1,10 +1,8 @@
-# React + Vite
-
 # React Vite App
 
 ## Description
 
-This is a React application bootstrapped with Vite, a fast build tool for modern web development. It provides a quick setup for building React projects with blazing fast development and build times.
+This is a simple CRUD Application
 
 ## Installation and usage
 
@@ -13,7 +11,7 @@ This is a React application bootstrapped with Vite, a fast build tool for modern
     git clone hhttps://github.com/Ragav-2002/Property-Listing-App.git
 3.  cd backend and run npm install to install dependencies.
 4.  start the server by using node index.js or nodemon index.js and connect to mongoDB database locally
-5.  ..cd then cd frontend and run npm install.
+5.  cd .. then cd frontend and run npm install.
 6.  To run the application in development mode, use the following command:
     npm run dev
     This will start the development server and open the application in your default web browser.
