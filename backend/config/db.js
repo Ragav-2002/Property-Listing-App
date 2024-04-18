@@ -1,13 +1,12 @@
 const mongoose = require('mongoose')
 
 const dbConnect = async() => {
-    const name = process.env.DB_NAME
-    const url = process.env.DB_URL
+    const url = process.env.DB_URL || 'mongodb+srv://sripalasettyraghavendra2002:ragvirat2002@cluster0.8ogwzzg.mongodb.net/'
     try{
-        mongoose.connect(`${url}/${name}`)
-        console.log(`connected to db ${name}`)
+        mongoose.connect(url)
+        console.log('connected to db')
     }catch(e){
-        console.log(`error connecting to db ${name}`)
+        console.log('error connecting to db')
     }
 }
 
